@@ -1,9 +1,10 @@
 import 'dart:developer';
 import 'dart:io';
 
-import '../models/ebook.dart';
 import 'package:http/http.dart';
 import 'package:path_provider/path_provider.dart';
+
+import '../models/ebook.dart';
 
 class EbookDownloadsController {
   static EbookDownloadsController? _instance;
@@ -46,7 +47,7 @@ class EbookDownloadsController {
         return DownloadProgress(
           ebook: ebook,
           totalSize: totalSize,
-          bytesDownloaded: bytesDownloaded + chunk.length,
+          bytesDownloaded: bytesDownloaded += chunk.length,
         );
       },
     );

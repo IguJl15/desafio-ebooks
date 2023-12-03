@@ -1,6 +1,7 @@
-import '../../../../models/ebook.dart';
-import '../../../../../shared/extensions.dart';
 import 'package:flutter/material.dart';
+
+import '../../../../../shared/extensions.dart';
+import '../../../../models/ebook.dart';
 
 class BookCover extends StatelessWidget {
   const BookCover({
@@ -30,13 +31,13 @@ class BookCover extends StatelessWidget {
           Text(
             ebook.title,
             style: context.themeData.textTheme.titleLarge! //
-                .copyWith(shadows: kElevationToShadow[1]),
+                .copyWith(shadows: kElevationToShadow[1], color: Colors.white),
           ),
           Text(
             ebook.author,
             maxLines: 2,
             style: context.themeData.textTheme.bodyMedium! //
-                .copyWith(color: context.themeData.colorScheme.onSurfaceVariant),
+                .copyWith(color: Colors.grey[100]),
           )
         ],
       ),

@@ -1,9 +1,8 @@
-import 'dart:developer';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../../../../data/ebook_downloads_controller.dart';
 import '../../../../models/ebook.dart';
 import 'ebook_state.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
 
 class EbookCubit extends Cubit<EbookState> {
   EbookCubit({required Ebook ebook})
@@ -12,6 +11,7 @@ class EbookCubit extends Cubit<EbookState> {
           EbookState(isDownloaded: _downloadManager.isEbookDownloaded(ebook)),
         );
 
+  Ebook get ebook => _ebook;
   final Ebook _ebook;
   static final _downloadManager = EbookDownloadsController.instance;
 
@@ -21,15 +21,19 @@ class EbookCubit extends Cubit<EbookState> {
     }
     final stream = _downloadManager.startDownload(_ebook);
 
-    stream
-        .map((event) => EbookState.downloading(
-              progress: event.bytesDownloaded / event.totalSize,
-            ))
-        .listen((event) {
-      log(event.toString());
-      emit(event);
-    }, onDone: () {
-      emit(const EbookState(isDownloaded: true));
+    final statesStream = stream.map((event) {
+      final percentage = event.bytesDownloaded / event.totalSize;
+
+      return EbookState.downloading(progress: percentage);
     });
+
+    statesStream.listen(
+      (event) {
+        emit(event);
+      },
+      onDone: () {
+        emit(const EbookState(isDownloaded: true));
+      },
+    );
   }
 }

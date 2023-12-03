@@ -1,16 +1,17 @@
-// ignore_for_file: sort_child_properties_last
-
 import 'dart:developer';
 
 import 'package:cached_network_image/cached_network_image.dart';
-import 'package:desafio_ebook/src/ebooks/models/ebook.dart';
-import 'package:desafio_ebook/src/ebooks/screens/home_page/cubits/ebook_cubit/ebook_cubit.dart';
-import 'package:desafio_ebook/src/ebooks/screens/home_page/cubits/ebook_cubit/ebook_state.dart';
-import 'package:desafio_ebook/src/ebooks/screens/home_page/widgets/ebook_card/book_cover.dart';
-import 'package:desafio_ebook/src/ebooks/screens/home_page/widgets/ebook_card/bookmark_button.dart';
-import 'package:desafio_ebook/src/ebooks/screens/home_page/widgets/ebook_card/download_status.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:go_router/go_router.dart';
+
+import '../../../../../shared/extensions.dart';
+import '../../../../models/ebook.dart';
+import '../../cubits/ebook_cubit/ebook_cubit.dart';
+import '../../cubits/ebook_cubit/ebook_state.dart';
+import 'book_cover.dart';
+import 'bookmark_button.dart';
+import 'download_status.dart';
 
 class EbookCard extends StatelessWidget {
   const EbookCard({
@@ -27,13 +28,17 @@ class EbookCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final borderRadius = BorderRadius.all(Radius.circular(8));
     return BlocProvider(
       create: (_) => EbookCubit(ebook: ebook),
       child: Card(
+        margin: const EdgeInsets.all(4),
         clipBehavior: Clip.antiAlias,
-        shape: const RoundedRectangleBorder(borderRadius: BorderRadius.all(Radius.circular(6))),
+        shape: RoundedRectangleBorder(borderRadius: borderRadius),
         child: Container(
           decoration: BoxDecoration(
+            border: Border.all(color: context.themeData.colorScheme.outlineVariant),
+            borderRadius: borderRadius,
             image: DecorationImage(
               image: CachedNetworkImageProvider(ebook.coverImageUrl),
               fit: BoxFit.cover,
