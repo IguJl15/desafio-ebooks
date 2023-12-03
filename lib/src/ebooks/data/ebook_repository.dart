@@ -1,11 +1,11 @@
 import 'dart:convert';
 import 'dart:io';
 
-import 'package:desafio_ebook/src/ebooks/data/ebook_downloads_controller.dart';
 import 'package:http/http.dart';
 
 import '../../shared/constants.dart';
 import '../models/ebook.dart';
+import 'ebook_downloads_controller.dart';
 
 class EbookRepository {
   final Client client;

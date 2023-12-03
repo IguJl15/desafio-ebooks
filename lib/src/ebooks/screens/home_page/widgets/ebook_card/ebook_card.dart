@@ -1,5 +1,3 @@
-import 'dart:developer';
-
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -28,13 +26,14 @@ class EbookCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final borderRadius = BorderRadius.all(Radius.circular(8));
+    const borderRadius = BorderRadius.all(Radius.circular(8));
+    
     return BlocProvider(
       create: (_) => EbookCubit(ebook: ebook),
       child: Card(
-        margin: const EdgeInsets.all(4),
+        margin: EdgeInsets.zero,
         clipBehavior: Clip.antiAlias,
-        shape: RoundedRectangleBorder(borderRadius: borderRadius),
+        shape: const RoundedRectangleBorder(borderRadius: borderRadius),
         child: Container(
           decoration: BoxDecoration(
             border: Border.all(color: context.themeData.colorScheme.outlineVariant),

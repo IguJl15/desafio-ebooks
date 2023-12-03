@@ -1,7 +1,7 @@
-import 'package:desafio_ebook/src/shared/extensions.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
+import '../../../../../shared/extensions.dart';
 import '../../cubits/ebook_cubit/ebook_cubit.dart';
 import '../../cubits/ebook_cubit/ebook_state.dart';
 

@@ -1,14 +1,15 @@
 import 'dart:developer';
 import 'dart:io';
 
-import 'package:desafio_ebook/src/ebooks/data/ebook_downloads_controller.dart';
-import 'package:desafio_ebook/src/ebooks/data/ebook_repository.dart';
-import 'package:desafio_ebook/src/ebooks/models/ebook.dart';
-import 'package:desafio_ebook/src/shared/extensions.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:http/http.dart';
 import 'package:vocsy_epub_viewer/epub_viewer.dart';
+
+import '../../../shared/extensions.dart';
+import '../../data/ebook_downloads_controller.dart';
+import '../../data/ebook_repository.dart';
+import '../../models/ebook.dart';
 
 class EpubReader extends StatefulWidget {
   final int ebookId;

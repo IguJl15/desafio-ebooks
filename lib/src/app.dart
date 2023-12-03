@@ -1,10 +1,10 @@
-import 'ebooks/models/ebook.dart';
-import 'ebooks/screens/epub_reader/epub_reader_page.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:go_router/go_router.dart';
 
+import 'ebooks/models/ebook.dart';
+import 'ebooks/screens/epub_reader/epub_reader_page.dart';
 import 'ebooks/screens/home_page/home_page.dart';
 import 'settings/settings_controller.dart';
 import 'settings/settings_view.dart';
