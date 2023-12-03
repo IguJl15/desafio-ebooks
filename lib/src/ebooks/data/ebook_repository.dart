@@ -1,13 +1,16 @@
 import 'dart:convert';
 
-import '../models/ebook.dart';
-import '../../shared/constants.dart';
 import 'package:http/http.dart';
+
+import '../../shared/constants.dart';
+import '../models/ebook.dart';
 
 class EbookRepository {
   final Client client;
 
-  EbookRepository({required this.client});
+  EbookRepository({
+    required this.client,
+  });
 
   Future<List<Ebook>> getAllAvailableEbooks() async {
     try {

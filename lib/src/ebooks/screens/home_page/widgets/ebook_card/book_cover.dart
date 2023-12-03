@@ -1,5 +1,5 @@
-import 'package:desafio_ebook/src/ebooks/models/ebook.dart';
-import 'package:desafio_ebook/src/shared/extensions.dart';
+import '../../../../models/ebook.dart';
+import '../../../../../shared/extensions.dart';
 import 'package:flutter/material.dart';
 
 class BookCover extends StatelessWidget {

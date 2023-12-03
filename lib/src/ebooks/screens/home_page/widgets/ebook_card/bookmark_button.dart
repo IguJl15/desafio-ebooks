@@ -1,7 +1,26 @@
 import 'package:flutter/material.dart';
 
-class FavoriteButton extends StatelessWidget {
-  const FavoriteButton({
+class BookmarkButton extends StatelessWidget {
+  const BookmarkButton({super.key, required this.active, required this.onTap});
+
+  final bool active;
+  final VoidCallback onTap;
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      alignment: Alignment.topRight,
+      margin: const EdgeInsets.only(right: 8),
+      child: _Button(
+        active: active,
+        onTap: () => onTap(),
+      ),
+    );
+  }
+}
+
+class _Button extends StatelessWidget {
+  const _Button({
     super.key,
     required this.onTap,
     required this.active,
