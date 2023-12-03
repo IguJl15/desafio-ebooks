@@ -17,6 +17,7 @@ class EbookDownloadsController {
 
   final client = Client();
   // Maps file path to its ebook
+  Map<int, String> get downloadedEbooks => Map.from(_downloadedEbooks);
   final Map<int, String> _downloadedEbooks = {};
   Future<Directory> get _downloadDestinationPath => getApplicationSupportDirectory();
 

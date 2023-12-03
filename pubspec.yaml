@@ -24,6 +24,7 @@ dependencies:
   json_annotation: ^4.8.1
   path_provider: ^2.1.1
   shared_preferences: ^2.2.2
+  vocsy_epub_viewer: ^2.0.0
 
 dev_dependencies:
   flutter_test:

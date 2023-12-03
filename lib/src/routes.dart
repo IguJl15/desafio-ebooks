@@ -4,15 +4,18 @@ final _router = GoRouter(
   routes: [
     GoRoute(
       path: '/',
-      builder: (context, state) => const HomePage(),
+      builder: (_, __) => const HomePage(),
     ),
     GoRoute(
-      path: '/read/:eBookId',
-      builder: (_, __) => Placeholder(),
+      path: '/read/:ebookId',
+      builder: (_, state) => EpubReader(
+        ebook: state.extra as Ebook?,
+        ebookId: int.parse(state.pathParameters['ebookId']!),
+      ),
     ),
     GoRoute(
       path: '/settings',
-      builder: (context, state) => SettingsView(controller: SettingsController.instance),
+      builder: (_, __) => SettingsView(controller: SettingsController.instance),
     )
   ],
 );

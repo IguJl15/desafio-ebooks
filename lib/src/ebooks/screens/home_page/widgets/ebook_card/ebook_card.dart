@@ -70,12 +70,10 @@ class Cover extends StatelessWidget {
         if (!isDownloaded) {
           cubit.ebookCoverPressed();
         } else {
-          log("ta baixado");
+          context.push("/read/${cubit.ebook.id}", extra: cubit.ebook);
         }
       },
-      downloading: (_) {
-        log("Diz que ta baixando");
-      },
+      downloading: (_) {},
     );
   }
 
