@@ -1,3 +1,5 @@
+import 'dart:io';
+
 import 'package:flutter/material.dart';
 
 import 'src/app.dart';
@@ -7,8 +9,11 @@ import 'src/settings/settings_service.dart';
 import 'src/shared/shared_preference.dart';
 
 void main() async {
-  // Set up the SettingsController, which will glue user settings to multiple
-  // Flutter Widgets.
+  // On mobile, crashes at initialization
+  if (Platform.isAndroid || Platform.isIOS) {
+    WidgetsFlutterBinding.ensureInitialized();
+  }
+
   SettingsController.initialize(SettingsService());
   await AppSharedPreferenceSingleton.initialize();
   await EbookDownloadsController.initialize();
